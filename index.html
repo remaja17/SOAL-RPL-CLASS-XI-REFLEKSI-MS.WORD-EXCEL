@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>Refleksi MS Office & Basis Data | XI RPL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">XI <span>RPL</span></div>
+    <div><strong>REFLEKSI PEMBELAJARAN</strong><small>SMK • KELAS XI REKAYASA PERANGKAT LUNAK</small></div>
+  </header>
+
+  <main class="container">
+    <section id="welcome" class="panel welcome">
+      <p class="eyebrow">UJIAN REFLEKSI • 50 SOAL • 30 MENIT</p>
+      <h1>Uji Pemahamanmu.</h1>
+      <p class="lead">Microsoft Word, Microsoft Excel, dan Logika Basis Data</p>
+      <div class="info-grid">
+        <div><b>50</b><span>Soal pilihan ganda</span></div>
+        <div><b>30</b><span>Menit pengerjaan</span></div>
+        <div><b>4</b><span>Pilihan jawaban</span></div>
+      </div>
+      <form id="identityForm" novalidate>
+        <label for="studentName">Nama lengkap</label>
+        <input id="studentName" name="studentName" type="text" autocomplete="name" placeholder="Masukkan nama lengkap" required>
+        <label for="studentClass">Kelas</label>
+        <select id="studentClass" name="studentClass" required>
+          <option value="">Pilih kelas</option>
+          <option>XI RPL</option><option>XI RPL A</option><option>XI RPL B</option>
+        </select>
+        <label for="studentNumber">Nomor absen</label>
+        <input id="studentNumber" name="studentNumber" type="number" min="1" step="1" placeholder="Contoh: 12" required>
+        <button id="startBtn" class="primary" type="submit">MULAI REFLEKSI <span>→</span></button>
+        <p id="startError" class="error" role="alert"></p>
+      </form>
+      <p class="teacher">Guru: Hoelwiel Febtha B.L, S.Kom</p>
+    </section>
+
+    <section id="exam" class="hidden">
+      <div class="exam-head panel">
+        <div><span class="eyebrow">PESERTA</span><strong id="studentInfo"></strong></div>
+        <div class="timer-wrap"><small>SISA WAKTU</small><strong id="timer">30:00</strong></div>
+      </div>
+      <div class="progress-wrap"><div class="progress-label"><span id="progressText">SOAL 1 DARI 50</span><span id="answeredText">0/50 TERJAWAB</span></div><div class="progress-track"><div id="progressBar"></div></div></div>
+      <article class="panel question-panel">
+        <div class="question-meta"><span id="sectionPill" class="pill">MICROSOFT WORD</span><span id="levelPill" class="level">MEDIUM</span><span id="questionNumber">01</span></div>
+        <h2 id="questionText"></h2>
+        <div id="options" class="options"></div>
+        <div class="nav-actions"><button id="prevBtn" class="secondary" type="button">← SEBELUMNYA</button><button id="nextBtn" class="primary" type="button">SELANJUTNYA →</button></div>
+      </article>
+      <section class="panel navigator">
+        <div class="navigator-head"><h3>Navigasi Soal</h3><span class="legend"><i></i> Terjawab</span></div>
+        <div id="numberGrid" class="number-grid"></div>
+        <button id="finishBtn" class="finish" type="button">SELESAIKAN REFLEKSI</button>
+      </section>
+    </section>
+
+    <section id="result" class="panel result hidden">
+      <p class="eyebrow">REFLEKSI SELESAI</p><h1>Hasil Pengerjaan</h1>
+      <p id="resultGreeting" class="lead"></p>
+      <div class="score-card"><strong id="score">0</strong><span>/ 100</span><p id="category"></p></div>
+      <div class="stats">
+        <div><b id="correctCount">0</b><span>Benar</span></div>
+        <div><b id="wrongCount">0</b><span>Salah</span></div>
+        <div><b id="blankCount">0</b><span>Kosong</span></div>
+      </div>
+      <p id="saveStatus" class="save-status">Mengirim hasil ke Google Sheets...</p>
+      <div class="result-actions">
+        <button id="reviewBtn" class="secondary" type="button">LIHAT PEMBAHASAN</button>
+        <button id="printBtn" class="secondary" type="button">CETAK / SIMPAN PDF</button>
+        <button id="homeBtn" class="primary" type="button">KEMBALI KE BERANDA</button>
+      </div>
+      <section id="review" class="review hidden"><h2>Pembahasan Jawaban</h2><div id="reviewList"></div></section>
+    </section>
+  </main>
+  <footer>REFLEKSI PEMBELAJARAN • KELAS XI RPL</footer>
+  <script src="questions.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
